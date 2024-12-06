@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:workout_fitness/view/exercise/exercise_view.dart';
 import 'package:workout_fitness/view/home/home_view.dart';
 import 'package:workout_fitness/view/menu/yoga_view.dart';
 import 'package:workout_fitness/view/settings/setting_view.dart';
@@ -62,13 +61,14 @@ class _MenuViewState extends State<MenuView> {
     {"name": "Home", "image": "assets/img/menu_home.png", "tag": "1"},
     {"name": "Weight", "image": "assets/img/menu_weight.png", "tag": "2"},
     {"name": "Training plan", "image": "assets/img/menu_traning_plan.png", "tag": "3"},
+    {"name": "Training Status", "image": "assets/img/menu_traning_status.png", "tag": "4"},
     {"name": "Meal Plan", "image": "assets/img/menu_meal_plan.png", "tag": "5"},
     {"name": "Schedule", "image": "assets/img/menu_schedule.png", "tag": "6"},
     {"name": "Running", "image": "assets/img/menu_running.png", "tag": "7"},
     {"name": "Exercises", "image": "assets/img/menu_exercises.png", "tag": "8"},
     {"name": "Tips", "image": "assets/img/menu_tips.png", "tag": "9"},
     {"name": "Settings", "image": "assets/img/menu_settings.png", "tag": "10"},
-
+    {"name": "Support", "image": "assets/img/menu_support.png", "tag": "11"},
   ];
 
   @override
@@ -132,74 +132,27 @@ class _MenuViewState extends State<MenuView> {
                           height: 1,
                         ),
                         Expanded(
-                          child: ListView.builder(
-                            padding: const EdgeInsets.symmetric(vertical: 50),
-                            itemCount: planArr.length,
-                            itemBuilder: (context, index) {
-                              var itemObj = planArr[index] as Map? ?? {};
+                            child: ListView.builder(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 50),
+                                itemCount: planArr.length,
+                                itemBuilder: (context, index) {
+                                  var itemObj = planArr[index] as Map? ?? {};
 
-                              return PlanRow(
-                                mObj: itemObj,
-                                onPressed: () {
-                                  switch (index) {
-                                    case 0: // Running
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const RunningView(),
-                                        ),
-                                      );
-                                      break;
-                                    case 1: // Yoga
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const YogaView(),
-                                        ),
-                                      );
-                                      break;
-                                    case 2: // Workout
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const ExerciseView2(),
-                                        ),
-                                      );
-                                      break;
-                                    case 3: // Walking
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const RunningView(),
-                                        ),
-                                      );
-                                      break;
-                                    case 4: // Fitness
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const ExerciseView(),
-                                        ),
-                                      );
-                                      break;
-                                    case 5: // Strength
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const WeightView(),
-                                        ),
-                                      );
-                                      break;
-                                    default:
-                                    // Handle unknown cases or no action
-                                      break;
-                                  }
-                                },
-                              );
-                            },
-                          ),
-                        ),
-
+                                  return PlanRow(
+                                    mObj: itemObj,
+                                    onPressed: () {
+                                      // Navigator.pop(context);
+                                      if (index == 1) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const YogaView()));
+                                      }
+                                    },
+                                  );
+                                })),
                         const Divider(
                           color: Colors.black26,
                           height: 1,
@@ -365,37 +318,37 @@ class _MenuViewState extends State<MenuView> {
                   case "3":
                     Scaffold.of(context).openDrawer();
                     break;
-                   case "4":
+                   case "5":
                      Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const MealPlanView2()));
                     break;
-                  case "5":
+                  case "6":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const ScheduleView()));
                     break;
-                    case "6":
+                    case "7":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const RunningView()));
                     break;
-                   case "7":
+                   case "8":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const ExerciseView2()));
                     break;
-                   case "8":
+                   case "9":
                   Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const TipsView()));
                     break;
-                    case "9":
+                    case "10":
                     Navigator.push(
                         context,
                         MaterialPageRoute(

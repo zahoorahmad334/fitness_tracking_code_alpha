@@ -54,7 +54,7 @@ class _Step2ViewState extends State<Step2View> {
                 ),
               ),
               FitnessLevelSelector(
-                title: "Beginner",
+                title: "Beginer",
                 subtitle: "You are new to fitness training",
                 isSelect: selectIndex == 0,
                 onPressed: () {

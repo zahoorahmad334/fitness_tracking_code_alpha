@@ -26,7 +26,7 @@ class _ConnectViewState extends State<ConnectView> {
     },
     {
       "name": "Connect to Linkedln",
-      "icon": "assets/img/LinkedIn.png",
+      "icon": "assets/img/Linkdin.png",
       "color": const Color(0xff68CCFF),
     },
     {
